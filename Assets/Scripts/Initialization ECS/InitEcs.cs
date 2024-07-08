@@ -41,6 +41,8 @@ public class InitEcs : MonoBehaviour
             .Init();
 
         _updateSystems
+            .Add(new FoodAdd())
+            .Add(new AnimalMove())
             .Inject(configuration)
             .Inject(sceneData)
             .Init();

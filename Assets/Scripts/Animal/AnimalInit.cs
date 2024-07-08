@@ -12,15 +12,13 @@ public class AnimalInit : IEcsInitSystem
 
     public void Init()
     {
-        ref Level ComponentsLevel = ref sceneData.EntityLevel.Get<Level>();
-
         int temp = 0;
 
         for (int i = 0; i < sceneData.N; i++)
         {
             HashSet<int> exlude = new HashSet<int>();
 
-            for(int j = 0; j < sceneData.N / sceneData.M; j++)
+            for(int j = 0; j < sceneData.M / sceneData.N; j++)
             {
                 if (temp >= sceneData.M) break;
 
@@ -38,6 +36,8 @@ public class AnimalInit : IEcsInitSystem
                 Components.gameObject = animalObject;
 
                 exlude.Add(PointX);
+
+                ref FoodInitialization food = ref Entity.Get<FoodInitialization>();
 
                 ++temp;
             }

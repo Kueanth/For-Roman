@@ -14,8 +14,6 @@ public class LevelInit : IEcsInitSystem
 
         ref Level Components = ref Entity.Get<Level>();
 
-        Components.Points = new int[sceneData.N, sceneData.N];
-
         Vector3 scale;
 
         scale = new Vector3((sceneData.N / 10f) + 0.1f, 0.1f, (sceneData.N / 10f) + 0.1f);
@@ -24,7 +22,5 @@ public class LevelInit : IEcsInitSystem
 
         GameObject levelObject = GameObject.Instantiate(configuration.Point, position, Quaternion.identity);
         levelObject.transform.localScale = scale;
-
-        sceneData.EntityLevel = Entity;
     }
 }
